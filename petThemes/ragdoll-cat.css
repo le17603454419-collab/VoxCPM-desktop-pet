@@ -1,0 +1,156 @@
+.pet-wrap {
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  width: 220px;
+  height: 224px;
+  transform: translateX(-50%);
+  display: grid;
+  place-items: center;
+  z-index: 4;
+}
+
+.shadow {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  width: 132px;
+  height: 24px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: rgba(121, 99, 86, 0.18);
+  filter: blur(8px);
+  z-index: 0;
+  animation: shadowBreath 3.2s ease-in-out infinite;
+}
+
+.pet-body {
+  position: relative;
+  width: 205px;
+  height: 205px;
+  display: grid;
+  place-items: center;
+  transform-origin: 50% 82%;
+  animation: idleBody 3.2s ease-in-out infinite;
+  -webkit-app-region: no-drag;
+  cursor: pointer;
+}
+
+.pet-sprite {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  transform-origin: 50% 82%;
+  filter: drop-shadow(0 18px 18px rgba(115, 96, 83, 0.16));
+  transition: opacity 0.12s ease, transform 0.12s ease;
+  animation: idleSprite 4.8s ease-in-out infinite;
+}
+
+.pet-body.thinking {
+  animation: thinkingBody 1.35s ease-in-out infinite;
+}
+
+.pet-body.thinking .pet-sprite {
+  animation: thinkingSprite 1.35s ease-in-out infinite;
+}
+
+.pet-body.speaking {
+  animation: speakingBody 0.72s ease-in-out infinite;
+}
+
+.pet-body.speaking .pet-sprite {
+  animation: speakingSprite 0.42s ease-in-out infinite;
+}
+
+.pet-body.sleeping {
+  animation: sleepBody 4.2s ease-in-out infinite;
+}
+
+.pet-body.sleeping .pet-sprite {
+  animation: sleepSprite 4.2s ease-in-out infinite;
+}
+
+.pet-body.waving {
+  animation: waveBody 0.82s ease-in-out infinite;
+}
+
+.pet-body.waving .pet-sprite {
+  animation: waveSprite 0.82s ease-in-out infinite;
+}
+
+.pet-body.happy {
+  animation: happyBody 0.7s ease-in-out infinite;
+}
+
+.pet-body.happy .pet-sprite {
+  animation: happySprite 0.7s ease-in-out infinite;
+}
+
+@keyframes idleBody {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  35% { transform: translateY(-5px) rotate(-0.8deg); }
+  70% { transform: translateY(-2px) rotate(0.7deg); }
+}
+
+@keyframes idleSprite {
+  0%, 100% { transform: scaleX(1) scaleY(1); }
+  45% { transform: scaleX(1.012) scaleY(0.992); }
+  55% { transform: scaleX(0.99) scaleY(1.012); }
+}
+
+@keyframes shadowBreath {
+  0%, 100% { transform: translateX(-50%) scaleX(1); opacity: 0.72; }
+  50% { transform: translateX(-50%) scaleX(0.86); opacity: 0.48; }
+}
+
+@keyframes thinkingBody {
+  0%, 100% { transform: translateY(-2px) rotate(-2deg); }
+  50% { transform: translateY(-7px) rotate(3deg); }
+}
+
+@keyframes thinkingSprite {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.025); }
+}
+
+@keyframes speakingBody {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4px) scale(1.025); }
+}
+
+@keyframes speakingSprite {
+  0%, 100% { transform: scaleX(1) scaleY(1); }
+  50% { transform: scaleX(1.018) scaleY(0.986); }
+}
+
+@keyframes sleepBody {
+  0%, 100% { transform: translateY(1px) rotate(0deg); }
+  50% { transform: translateY(-3px) rotate(0.6deg); }
+}
+
+@keyframes sleepSprite {
+  0%, 100% { transform: scaleX(1) scaleY(1); opacity: 0.96; }
+  50% { transform: scaleX(1.018) scaleY(0.982); opacity: 1; }
+}
+
+@keyframes waveBody {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-5px) rotate(-4deg); }
+  75% { transform: translateY(-3px) rotate(4deg); }
+}
+
+@keyframes waveSprite {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.035); }
+}
+
+@keyframes happyBody {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(-1.6deg); }
+}
+
+@keyframes happySprite {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.045); }
+}
